@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 {% load staticfiles %}
@@ -10,7 +9,7 @@
 <meta name="author"
 	content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 <meta name="generator" content="Jekyll v3.8.5">
-<title>Larry Samuels</title>
+<title>{{ blog.title }}</title>
 
 <link rel="canonical"
 	href="https://getbootstrap.com/docs/4.3/examples/album/">
@@ -53,48 +52,22 @@
 				<div class="navbar-nav ml-auto">
 					<a class="nav-item nav-link" href="https://www.linkedin.com/in/larry-samuels-49725613/">Linked In</a> 
 					<a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a> 
-					<a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+					<a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
 				</div>
 			</div>
 		</nav>
 	</header>
 
 	<main role="main">
-
-	<section class="jumbotron text-center">
-		<div class="container">
-			<h1 class="jumbotron-heading">Hi, I'm Larry</h1>
-			<p class="lead text-muted">My name is Larry Samuels.
-			And I love to build Django projects.  It's the greatest way to make
-			interactive websites!</p>
-			<p>
-				<a href="mailto:larry_samuels@hotmail.com" class="btn btn-primary my-2">Email Me</a> 
-			</p>
-			<img src="{% static 'Larry.jpg' %}" height=200/>
+		<h1 class="text-center pt-3"> {{ blog.title }}</h1>
+		<p class = "text-center">{{ blog.pub_date }}</p>
+		<div class="container-fluid">
+	  		<div class="row justify-content-center">
+	   			<img src="{{ blog.image.url }}" />
+	  		</div>
+			<br />
+			<p>{{ blog.body }}</p>			
 		</div>
-	</section>
-
-	<div class="album py-5 bg-light">
-		<div class="container">
-
-			<div class="row">
-				{% for job in jobs.all %}
-			
-				<div class="col-md-4">
-					<div class="card mb-4 shadow-sm">
-						<img class="card-img-top" src="{{ job.image.url }}" />
-						<div class="card-body">
-							<p class="card-text">{{ job.summary }}</p>
-						</div>
-					</div>
-				</div>
-				{% endfor %}
-				
-				
-			</div>
-		</div>
-	</div>
-
 	</main>
 
 	<footer class="text-muted">
@@ -115,3 +88,4 @@
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
 </html>
+

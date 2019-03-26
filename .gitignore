@@ -173,3 +173,14 @@ local.properties
 
 *.sqlite3
 
+__pycache__/
+*.log
+*.pot
+*.pyc
+/media
+/static
+/bin
+/include
+/lib
+
+
